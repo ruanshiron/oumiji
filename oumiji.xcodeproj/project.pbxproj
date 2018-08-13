@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834DB05721212B2E00B5299D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 834DB05621212B2E00B5299D /* Settings.bundle */; };
+		8355105321215F9600715B20 /* AffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355105221215F9600715B20 /* AffViewController.swift */; };
 		837D5D9421182E1A00DD06F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D5D9321182E1A00DD06F1 /* AppDelegate.swift */; };
 		837D5D9621182E1A00DD06F1 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D5D9521182E1A00DD06F1 /* HelloViewController.swift */; };
 		837D5D9921182E1A00DD06F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D5D9721182E1A00DD06F1 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		226CD07BB63D970CD0278C74 /* Pods-oumiji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oumiji.release.xcconfig"; path = "Pods/Target Support Files/Pods-oumiji/Pods-oumiji.release.xcconfig"; sourceTree = "<group>"; };
 		4655A7D08F783D93D3F5405F /* Pods-oumiji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oumiji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-oumiji/Pods-oumiji.debug.xcconfig"; sourceTree = "<group>"; };
 		7FD7D229FA5A49C0EB224AF7 /* Pods_oumiji.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_oumiji.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		834DB05621212B2E00B5299D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		8355105221215F9600715B20 /* AffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffViewController.swift; sourceTree = "<group>"; };
 		837D5D9021182E1900DD06F1 /* oumiji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oumiji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837D5D9321182E1A00DD06F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837D5D9521182E1A00DD06F1 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 				83B679F4211AED9900F1D2E1 /* API */,
 				83B322BC211935B800960761 /* FaceObject.swift */,
 				83B322C22119511E00960761 /* AffdexCamera.swift */,
+				834DB05621212B2E00B5299D /* Settings.bundle */,
 				837D5D9721182E1A00DD06F1 /* Main.storyboard */,
 				837D5D9C21182E2600DD06F1 /* LaunchScreen.storyboard */,
 				837D5D9A21182E2600DD06F1 /* Assets.xcassets */,
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				837D5D9521182E1A00DD06F1 /* HelloViewController.swift */,
+				8355105221215F9600715B20 /* AffViewController.swift */,
 				837D5DA52118314700DD06F1 /* CamViewController.swift */,
 				837D5DA72118317600DD06F1 /* ByeViewController.swift */,
 			);
@@ -188,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834DB05721212B2E00B5299D /* Settings.bundle in Resources */,
 				837D5D9E21182E2600DD06F1 /* LaunchScreen.storyboard in Resources */,
 				837D5D9B21182E2600DD06F1 /* Assets.xcassets in Resources */,
 				837D5D9921182E1A00DD06F1 /* Main.storyboard in Resources */,
@@ -249,6 +256,7 @@
 				83B322C121193D4F00960761 /* Kairos.swift in Sources */,
 				837D5DA62118314700DD06F1 /* CamViewController.swift in Sources */,
 				83B322C32119511E00960761 /* AffdexCamera.swift in Sources */,
+				8355105321215F9600715B20 /* AffViewController.swift in Sources */,
 				837D5DA82118317600DD06F1 /* ByeViewController.swift in Sources */,
 				837D5D9621182E1A00DD06F1 /* HelloViewController.swift in Sources */,
 				8396C31F211BFB3000AD9F3C /* Result.swift in Sources */,

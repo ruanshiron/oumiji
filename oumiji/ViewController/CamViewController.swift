@@ -33,6 +33,7 @@ class CamViewController: UIViewController {
     @IBOutlet weak var faceI: UIImageView!
     
     @IBOutlet weak var notiV: UIView!
+    @IBOutlet weak var notiVcontraint: NSLayoutConstraint!
     
     @IBOutlet weak var happyB: UIButton!
     @IBOutlet weak var sadB: UIButton!
@@ -46,6 +47,8 @@ class CamViewController: UIViewController {
     
     var timeEmotion: Timer!
     
+    var fastMode: Bool!
+    
     // MARK: override
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +61,9 @@ class CamViewController: UIViewController {
         
         AffdexCamera.instance().startDetector()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        
+        defaultsChanged()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +80,12 @@ class CamViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         //
+        
+        timeEmotion.invalidate()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Action
@@ -127,10 +139,18 @@ class CamViewController: UIViewController {
         NextVC.camDelegate = self
         self.present(NextVC, animated: false, completion: nil)
     }
+    
+    @objc func defaultsChanged() {
+        fastMode = UserDefaults.standard.bool(forKey: "FAST_MODE")
+        print("FAST MODE: \(fastMode)")
+    }
+    
 }
 
 //MARK: AffdexCamera Delegate
 extension CamViewController: AffdexCameraDelegate {
+
+    
     func updateImage(image: UIImage) {
         CameraView.image = image
     }
@@ -142,6 +162,8 @@ extension CamViewController: AffdexCameraDelegate {
             return
         }
         
+        updateProcessing()
+        
         API.getKairos(for: image) { (result, error) in
             
             
@@ -150,7 +172,13 @@ extension CamViewController: AffdexCameraDelegate {
                 
                 if let error = error {
                     print(error as AnyObject)
-                    self.updateError(error: error as! String)
+                    
+                    AffdexCamera.instance().errorTime += 1
+                    AffdexCamera.instance().hadKairos = false
+                    
+                    if AffdexCamera.instance().errorTime == 3 {
+                        self.updateError(error: error as! String)
+                    }
                     return
                 }
                 
@@ -208,21 +236,27 @@ extension CamViewController: AffdexCameraDelegate {
         
     }
     
-    @objc func restartDectect() {
-        print("restart Dectect")
+    @objc func restartDetect() {
         
-        sendFace()
+        if !fastMode {
+            toHelloViewController(helloV)
+            return
+        }
+        
+        print("reuse Dectect")
+
+        AffdexCamera.instance().reuseDetector()
         
         REconfigFirstLook()
         
-        AffdexCamera.instance().reuseDetector()
         
         if (face.face_id != ""){
-            face = FaceObject()
+            sendFace()
         }
         
+        face = FaceObject()
+        
     }
- 
 }
 
 // MARK: API method
@@ -236,6 +270,8 @@ extension CamViewController {
             
             API.postEmo(param: param) { (res) in
             }
+            
+            print("API emotion: \(param)")
         }
     }
     
@@ -248,13 +284,32 @@ extension CamViewController {
 
 //MARK: UI config
 extension CamViewController {
+    func updateProcessing() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.helloL.alpha = 0
+        }) { (Done) in
+            if Done {
+                UIView.animate(withDuration: 0.2) {
+                    self.helloL.text = "Đang check hàng..."
+                    self.helloL.alpha = 1
+                    self.helloL.transform = .identity
+                    self.helloL.center.y = 45
+                    self.helloLcentreYcontraint.constant = 0
+                }
+            }
+        }
+    }
+    
     func updateName(name: String) {
         helloLcentreYcontraint.constant = -18
         nameLbottomContraint.constant = 12
+        notiVcontraint.constant = 60
         
         UIView.animate(withDuration: 0.5, animations: {
             self.helloL.center.y = self.helloV.frame.height/2
 //            self.nameL.center.y = self.helloV.frame.height - 20
+            self.helloL.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            self.helloL.alpha = 1
             
             self.helloL.center.y -= 18
             self.nameL.center.y -= 12
@@ -268,8 +323,11 @@ extension CamViewController {
             
         }) { (Done) in
             if Done {
+                self.helloL.alpha = 0
                 self.notiV.center.y = self.helloV.frame.height - self.notiV.frame.height/2
                 UIView.animate(withDuration: 0.5) {
+                    self.helloL.text = "Xin Chào"
+                    self.helloL.alpha = 1
                     self.notiV.center.y += self.notiV.frame.height
                     self.notiV.alpha = 1
                 }
@@ -279,14 +337,15 @@ extension CamViewController {
     }
     
     func REconfigFirstLook() {
+        self.helloLcentreYcontraint.constant = 0
+        self.notiVcontraint.constant = 0
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.helloL.text = "Xin chào"
-            self.helloL.center.y = self.helloV.frame.height/2
-            
+            self.helloL.center.y = 45
+            self.helloL.transform = .identity
+
             self.nameL.alpha = 0
             
-            self.notiV.alpha = 0
             self.notiV.center.y -= 60
             
             self.emoB.isHidden = true
@@ -295,10 +354,11 @@ extension CamViewController {
             self.helloV.backgroundColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)
         }) { (Done) in
             if Done {
-                self.helloLcentreYcontraint.constant = 0
+                self.helloL.text = "Mặt đâu rồi"
+                self.notiV.alpha = 0
+                self.helloL.alpha = 1
                 self.nameLbottomContraint.constant = 0
             }
-            
         }
         
         
@@ -308,7 +368,8 @@ extension CamViewController {
    
         self.helloL.center.y = self.helloV.frame.height/2
         
-        self.helloL.text = "Xin chào"
+        self.helloL.text = "Giữ nguyên cái mặt ở đấy"
+        self.helloL.font = self.helloL.font.withSize(32)
         self.nameL.text = ""
         
         self.nameL.alpha = 0
@@ -338,14 +399,22 @@ extension CamViewController {
             }
         }
         
+        if !fastMode {
+            _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(toHelloViewController(_:)), userInfo: nil, repeats: false)
+            return
+        }
+        
+        _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(restartDetect), userInfo: nil, repeats: false)
+        
         if error == "Không có kết nối" {
             _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(toHelloViewController(_:)), userInfo: nil, repeats: false)
             
             return
         }
         
-        _ = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(restartDectect), userInfo: nil, repeats: false)
-   
+        
+        
+     
     }
     
     
@@ -390,6 +459,7 @@ extension CamViewController {
                 //
             }
         })
+        
     }
 }
 
@@ -397,11 +467,11 @@ extension CamViewController {
 extension CamViewController: CamViewControllerDelegate {
     
     func doSomething() {
-        timeEmotion.invalidate()
+
         
         face = FaceObject()
         AffdexCamera.instance().affdexDelegate = self
-        restartDectect()
+        restartDetect()
     }
 }
 

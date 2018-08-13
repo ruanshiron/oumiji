@@ -56,7 +56,13 @@ class API: NSObject {
                 let transaction = (images[0] as? [String : AnyObject])!["transaction"]!
                 
                 var passdata = [String:AnyObject]()
-                passdata["name"] = (transaction as? [String : AnyObject])?["subject_id"] as? String as AnyObject
+                let nameAndId = (transaction as? [String : AnyObject])?["subject_id"] as? String
+                
+                if let nameAndId = nameAndId {
+                    let name = nameAndId.components(separatedBy: ",")
+                    passdata["name"] = name[0] as AnyObject
+                }
+                
                 passdata["face_id"] = (transaction as? [String : AnyObject])?["face_id"] as? String as AnyObject
                 let sconfidence = (transaction as? [String : AnyObject])?["confidence"]
                 

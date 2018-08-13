@@ -61,7 +61,13 @@ class HelloViewController: UIViewController {
             cameraIsPending = true
             return
         }
-        openCamViewController()
+        if !UserDefaults.standard.bool(forKey: "FOR_GUEST") {
+            openCamViewController()
+            
+        } else {
+            openAffViewController()
+        }
+        
     }
 }
 
@@ -78,6 +84,23 @@ extension HelloViewController {
 
                 let Storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                 let NextVC = Storyboard.instantiateViewController(withIdentifier: "CamViewController") as! CamViewController
+                self.present(NextVC, animated: false, completion: nil)
+            }
+        }
+    }
+    
+    func openAffViewController() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.helloV.frame.size.height = 90
+            
+            self.helloL.alpha = 0
+        }) { (Done) in
+            
+            // Next View Controller
+            DispatchQueue.main.async {
+                
+                let Storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let NextVC = Storyboard.instantiateViewController(withIdentifier: "AffViewController") as! AffViewController
                 self.present(NextVC, animated: false, completion: nil)
             }
         }

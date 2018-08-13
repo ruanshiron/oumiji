@@ -148,6 +148,8 @@ extension ByeViewController {
 }
 
 extension ByeViewController: AffdexCameraDelegate {
+
+    
     func updateImage(image: UIImage) {
         //
     }
@@ -160,7 +162,7 @@ extension ByeViewController: AffdexCameraDelegate {
         //
     }
     
-    func restartDectect() {
+    func restartDetect() {
         backClick(backB)
     }
     

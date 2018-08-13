@@ -17,7 +17,7 @@ protocol AffdexCameraDelegate {
     func updateImage(image: UIImage)
     func getKairos(image: UIImage, faces: NSMutableDictionary!)
     func updateFace(faces: NSMutableDictionary!)
-    func restartDectect()
+    func restartDetect()
 }
 
 
@@ -38,9 +38,11 @@ class AffdexCamera {
     var detector: AFDXDetector?
     
     var timeisWorking = false
-    var time: Timer!
+    var timeToRe: Timer!
     
     var cameraReady = false
+    
+    var errorTime = 0
 }
 
 extension AffdexCamera: AFDXDetectorDelegate {
@@ -88,7 +90,7 @@ extension AffdexCamera {
     
     func reuseDetector() {
         if self.timeisWorking {
-            self.time.invalidate()
+            self.timeToRe.invalidate()
         }
         
         cameraReady = false
@@ -96,6 +98,8 @@ extension AffdexCamera {
         hadKairos = false
         
         timeisWorking = false
+        
+        errorTime = 0
         
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(readyCamera), userInfo: nil, repeats: false)
     }
@@ -123,7 +127,7 @@ extension AffdexCamera {
         
         if faces.allValues.count > 0 {
             if self.timeisWorking {
-                self.time.invalidate()
+                self.timeToRe.invalidate()
                 self.timeisWorking = false
             }
             
@@ -138,7 +142,7 @@ extension AffdexCamera {
         } else {
             
             if timeisWorking == false {
-                self.time = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(restart), userInfo: nil, repeats: false)
+                self.timeToRe = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(restart), userInfo: nil, repeats: false)
                 self.timeisWorking = true
             }
         }      
@@ -147,7 +151,7 @@ extension AffdexCamera {
 
 extension AffdexCamera {
     @objc func restart() {
-        self.affdexDelegate?.restartDectect()
+        self.affdexDelegate?.restartDetect()
         
     }
 }
