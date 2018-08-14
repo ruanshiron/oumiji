@@ -18,13 +18,20 @@ class AffViewController: UIViewController {
     
     @IBOutlet weak var helloL: UILabel!
     
-    @IBOutlet weak var infoL: UILabel!
+    @IBOutlet weak var faceBound: UIView!
     
     var face = FaceObject()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        faceBound.layer.borderWidth = 2
+        faceBound.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+        faceBound.backgroundColor = UIColor(white: 1, alpha: 0)
+        faceBound.layer.cornerRadius = 4
+        faceBound.alpha = 0
+        
         
         AffdexCamera.instance().affdexDelegate = self
         AffdexCamera.instance().startDetector()
@@ -36,16 +43,9 @@ class AffViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 6, options: .allowUserInteraction, animations: {
             self.helloL.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }) { (Done) in
-            if Done {
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.helloL.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
-                    self.helloL.frame.origin.y = 12
-                })
-            }
-        }  
+        }, completion: nil)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,12 +72,17 @@ extension AffViewController: AffdexCameraDelegate {
         for face in faces.allValues {
             self.face.update(face: face as! AFDXFace)
             updateEmoI()
+            
+            //print((face as! AFDXFace).emotions.dictionaryWithValues(forKeys: ["anger","contempt","fear","joy", "sadness", "surprise"]))
+            
+            self.faceBound.frame = (face as! AFDXFace).faceBounds
+            
             break
         }
     }
     
     func restartDetect() {
-        //
+        emoI.image = nil
     }
     
     
@@ -86,42 +91,72 @@ extension AffViewController: AffdexCameraDelegate {
 
 
 extension AffViewController {
+   
     func updateEmoI() {
-        var image = UIImage()
+        let image = emotionImage(face: face)
+
+        emoI.image = image
+    
+    }
+    
+    func emotionImage(face: FaceObject) -> UIImage? {
+        let emotion = face.emotionGuest()
         
-        switch face.emotionGuest() {
+        
+        
+        if face.female == false {
+            switch emotion {
+            case "happy":
+                return #imageLiteral(resourceName: "mhappy")
+            case "sad":
+                return #imageLiteral(resourceName: "msad")
+            case "angry":
+                return #imageLiteral(resourceName: "mangry")
+            case "fear":
+                return #imageLiteral(resourceName: "mfear")
+            case "surprise":
+                return #imageLiteral(resourceName: "msurprise")
+            case "neutral":
+                return #imageLiteral(resourceName: "mneutral")
+            case "disgust":
+                
+                break
+            case "valence":
+                
+                break
+            case "contempt":
+                return #imageLiteral(resourceName: "mcontempt")
+            default:
+                break
+            }
+        }
+        
+        switch emotion {
         case "happy":
-            image = #imageLiteral(resourceName: "ihappy")
-            break
+            return #imageLiteral(resourceName: "fhappy")
         case "sad":
-            image = #imageLiteral(resourceName: "isad")
-            break
+            return #imageLiteral(resourceName: "fsad")
         case "angry":
-            image = #imageLiteral(resourceName: "iangry")
-            break
+            return #imageLiteral(resourceName: "fangry")
         case "fear":
-            image = #imageLiteral(resourceName: "ifear")
-            break
+            return #imageLiteral(resourceName: "ffear")
         case "surprise":
-            image = #imageLiteral(resourceName: "isurprise")
-            break
+            return #imageLiteral(resourceName: "fsurprise")
         case "neutral":
-            image = #imageLiteral(resourceName: "ineutral")
-            break
+            return #imageLiteral(resourceName: "fneutral")
         case "disgust":
             
             break
         case "valence":
-
+            
             break
         case "contempt":
-
-            break
+            return #imageLiteral(resourceName: "fcontempt")
         default:
             break
         }
         
-        emoI.image = image
+        return nil
     }
 }
 
@@ -133,11 +168,11 @@ fileprivate extension FaceObject {
         emo["fear"] = self.nowfear
         emo["sad"] = self.nowsadness
         emo["surprise"] = self.nowsurprise
-        emo["disgust"] = self.nowdisgust
+        //emo["disgust"] = self.nowdisgust
         emo["contempt"] = self.nowcontempt
-        emo["valence"] = self.nowvalence
-        emo["neutral"] = 100 - self.nowjoy - self.nowanger - self.nowfear - self.nowsurprise - self.nowsadness - self.contempt - self.disgust - self.valence
-        print(emo)
+        //emo["valence"] = self.nowvalence
+        emo["neutral"] = 100 - self.nowjoy - self.nowanger - self.nowfear - self.nowsurprise - self.nowsadness - self.contempt
+        //print(emo)
         //print(emo)
         let greatest = emo.max { a, b in a.value < b.value }
         let emoM = greatest?.key

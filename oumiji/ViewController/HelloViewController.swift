@@ -28,8 +28,6 @@ class HelloViewController: UIViewController {
         super.viewDidLoad()
         
         startB.layer.cornerRadius = startB.layer.frame.height/6
-        startB.center.x = view.bounds.width/2
-        startB.center.y = view.bounds.height/2 + helloV.bounds.height/2
         
         //let backgroundQueue = DispatchQueue.global(qos: .background)
         //backgroundQueue.async {
@@ -51,12 +49,13 @@ class HelloViewController: UIViewController {
         super.viewDidAppear(animated)
         
         UIView.animate(withDuration: 0.5) {
-            self.helloV.frame.size.height = 335
             self.helloL.alpha = 1
+            self.startB.alpha = 1
         }
     }
 
     @IBAction func start(_ sender: UIButton) {
+        
         if affdexCameraSucces == false {
             cameraIsPending = true
             return
@@ -77,6 +76,8 @@ extension HelloViewController {
             self.helloV.frame.size.height = 90
             
             self.helloL.alpha = 0
+            
+            self.startB.alpha = 0
         }) { (Done) in
             
             // Next View Controller

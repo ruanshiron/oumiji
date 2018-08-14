@@ -24,15 +24,16 @@ class CamViewController: UIViewController {
     @IBOutlet weak var helloLcentreYcontraint: NSLayoutConstraint!
     
     @IBOutlet weak var nameL: UILabel!
-    @IBOutlet weak var nameLbottomContraint: NSLayoutConstraint!
+    @IBOutlet weak var nameLcentreYContraint: NSLayoutConstraint!
     
     @IBOutlet weak var CameraView: UIImageView!
     
-    @IBOutlet weak var emoB: UIStackView!
+    @IBOutlet weak var emoV: UIView!
     
     @IBOutlet weak var faceI: UIImageView!
     
     @IBOutlet weak var notiV: UIView!
+    
     @IBOutlet weak var notiVcontraint: NSLayoutConstraint!
     
     @IBOutlet weak var happyB: UIButton!
@@ -73,15 +74,13 @@ class CamViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        timeEmotion = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateEmotion), userInfo: nil, repeats: true)
+//        timeEmotion = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateEmotion), userInfo: nil, repeats: true)
         
         REconfigFirstLook()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         //
-        
-        timeEmotion.invalidate()
     }
     
     deinit {
@@ -168,7 +167,7 @@ extension CamViewController: AffdexCameraDelegate {
             
             
             DispatchQueue.main.async {
-                self.faceI.image = image
+                //self.faceI.image = image
                 
                 if let error = error {
                     print(error as AnyObject)
@@ -229,9 +228,11 @@ extension CamViewController: AffdexCameraDelegate {
         for face in faces.allValues {
             let faceO = face as! AFDXFace
             self.face.update(face: faceO)
+            
             break
         }
         
+        self.updateEmotion(face: face)
         print(face.realemotion() ?? " -- ")
         
     }
@@ -290,10 +291,10 @@ extension CamViewController {
         }) { (Done) in
             if Done {
                 UIView.animate(withDuration: 0.2) {
-                    self.helloL.text = "Đang check hàng..."
+                    self.helloL.text = "Đang kiểm tra"
                     self.helloL.alpha = 1
                     self.helloL.transform = .identity
-                    self.helloL.center.y = 45
+                    self.helloL.center.y = self.helloV.frame.height/2
                     self.helloLcentreYcontraint.constant = 0
                 }
             }
@@ -301,8 +302,8 @@ extension CamViewController {
     }
     
     func updateName(name: String) {
-        helloLcentreYcontraint.constant = -18
-        nameLbottomContraint.constant = 12
+        helloLcentreYcontraint.constant = -self.helloV.frame.height/4
+        nameLcentreYContraint.constant = -self.helloV.frame.height/3                                                                                           
         notiVcontraint.constant = 60
         
         UIView.animate(withDuration: 0.5, animations: {
@@ -311,14 +312,14 @@ extension CamViewController {
             self.helloL.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             self.helloL.alpha = 1
             
-            self.helloL.center.y -= 18
-            self.nameL.center.y -= 12
+            self.helloL.center.y -= self.helloV.frame.height/2
+            self.nameL.center.y -= self.helloV.frame.height/3
             
             self.nameL.text = name
             self.nameL.alpha = 1
             
-            self.emoB.isHidden = false
-            self.emoB.alpha = 1
+            self.emoV.isHidden = false
+            self.emoV.alpha = 1
             
             
         }) { (Done) in
@@ -340,24 +341,26 @@ extension CamViewController {
         self.helloLcentreYcontraint.constant = 0
         self.notiVcontraint.constant = 0
         
+        faceI.image = nil
+        
         UIView.animate(withDuration: 0.5, animations: {
-            self.helloL.center.y = 45
+            self.helloL.center.y = self.helloV.frame.height/2
             self.helloL.transform = .identity
 
             self.nameL.alpha = 0
             
             self.notiV.center.y -= 60
             
-            self.emoB.isHidden = true
-            self.emoB.alpha = 0
+            self.emoV.isHidden = true
+            self.emoV.alpha = 0
             
             self.helloV.backgroundColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)
         }) { (Done) in
             if Done {
-                self.helloL.text = "Mặt đâu rồi"
+                self.helloL.text = "Có ai không"
                 self.notiV.alpha = 0
                 self.helloL.alpha = 1
-                self.nameLbottomContraint.constant = 0
+                self.nameLcentreYContraint.constant = 0
             }
         }
         
@@ -368,16 +371,22 @@ extension CamViewController {
    
         self.helloL.center.y = self.helloV.frame.height/2
         
-        self.helloL.text = "Giữ nguyên cái mặt ở đấy"
+        self.helloL.text = "Đợi chút"
         self.helloL.font = self.helloL.font.withSize(32)
         self.nameL.text = ""
         
         self.nameL.alpha = 0
         self.notiV.alpha = 0
         
-        self.emoB.isHidden = true
-        self.emoB.alpha = 0
+        self.emoV.isHidden = true
+        self.emoV.alpha = 0
         
+        happyB.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        sadB.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        fearB.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        angryB.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        surpriseB.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        neutralB.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         
     }
     
@@ -418,48 +427,68 @@ extension CamViewController {
     }
     
     
-    @objc func updateEmotion() {
+    @objc func updateEmotion(face: FaceObject) {
+        let image = emotionImage(face: face)
         
-        var button = UIButton()
+        faceI.image = image
+    }
+    
+    func emotionImage(face: FaceObject) -> UIImage? {
+        let emotion = face.nowEmotion()
+     
+        if face.female == false {
+            switch emotion {
+            case "happy":
+                return #imageLiteral(resourceName: "mhappy")
+            case "sad":
+                return #imageLiteral(resourceName: "msad")
+            case "angry":
+                return #imageLiteral(resourceName: "mangry")
+            case "fear":
+                return #imageLiteral(resourceName: "mfear")
+            case "surprise":
+                return #imageLiteral(resourceName: "msurprise")
+            case "neutral":
+                return #imageLiteral(resourceName: "mneutral")
+            case "disgust":
+                
+                break
+            case "valence":
+                
+                break
+            case "contempt":
+                return #imageLiteral(resourceName: "mcontempt")
+            default:
+                break
+            }
+        }
         
-        switch face.nowEmotion() {
+        switch emotion {
         case "happy":
-            button = happyB
-            break
+            return #imageLiteral(resourceName: "fhappy")
         case "sad":
-            button = sadB
-            break
-        case "fear":
-            button = fearB
-            break
-        case "surprise":
-            button = surpriseB
-            break
+            return #imageLiteral(resourceName: "fsad")
         case "angry":
-            button = angryB
-            break
+            return #imageLiteral(resourceName: "fangry")
+        case "fear":
+            return #imageLiteral(resourceName: "ffear")
+        case "surprise":
+            return #imageLiteral(resourceName: "fsurprise")
         case "neutral":
-            button = neutralB
+            return #imageLiteral(resourceName: "fneutral")
+        case "disgust":
+            
             break
+        case "valence":
+            
+            break
+        case "contempt":
+            return #imageLiteral(resourceName: "fcontempt")
         default:
             break
         }
         
-        happyB.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        sadB.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        fearB.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        angryB.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        surpriseB.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        neutralB.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 3.0, options: [.allowUserInteraction], animations: {
-            button.transform = .identity
-        }, completion: { Done in
-            if Done {
-                //
-            }
-        })
-        
+        return nil
     }
 }
 

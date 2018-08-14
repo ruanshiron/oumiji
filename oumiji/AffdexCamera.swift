@@ -154,5 +154,7 @@ extension AffdexCamera {
         self.affdexDelegate?.restartDetect()
         
     }
+    
+    
 }
 

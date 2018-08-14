@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/AffdexCamera.swift"
-            timestampString = "555848011.384564"
+            timestampString = "555937180.98119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/AffdexCamera.swift"
-            timestampString = "555848011.384637"
+            timestampString = "555937180.981325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/AffdexCamera.swift"
-            timestampString = "555848011.3847311"
+            timestampString = "555937180.981447"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/ViewController/CamViewController.swift"
-            timestampString = "555848011.384895"
+            timestampString = "555937180.981802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "sendFace()"
             landmarkType = "7">
             <Locations>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/ViewController/CamViewController.swift"
-            timestampString = "555848011.38536"
+            timestampString = "555937180.9824899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "sendFace()"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/ViewController/CamViewController.swift"
-            timestampString = "555848011.385693"
+            timestampString = "555937180.98344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
             landmarkName = "updateName(name:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/ViewController/CamViewController.swift"
-            timestampString = "555848011.386047"
+            timestampString = "555937180.9843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "updateName(name:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/ViewController/CamViewController.swift"
-            timestampString = "555848011.386394"
+            timestampString = "555937180.985031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "updateName(name:)"
             landmarkType = "7">
             <Locations>
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/FaceObject.swift"
-            timestampString = "555839227.373461"
+            timestampString = "555924528.617406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/ViewController/CamViewController.swift"
-            timestampString = "555848011.3867871"
+            timestampString = "555937180.985983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
             landmarkName = "updateError(error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,7 +378,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/AffdexCamera.swift"
-            timestampString = "555848011.387195"
+            timestampString = "555937180.986503"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -394,13 +394,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "oumiji/AffdexCamera.swift"
-            timestampString = "555848011.3872809"
+            timestampString = "555937180.986565"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "reuseDetector()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "oumiji/ViewController/CamViewController.swift"
+            timestampString = "555937180.986644"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "getKairos(image:faces:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "oumiji.CamViewController.getKairos(image: __ObjC.UIImage, faces: Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSMutableDictionary&gt;) -&gt; ()"
+                  moduleName = "oumiji"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ominext/Desktop/oumiji/oumiji/ViewController/CamViewController.swift"
+                  timestampString = "555933831.343399"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.AnyObject&gt;, Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; () in oumiji.CamViewController.getKairos(image: __ObjC.UIImage, faces: Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSMutableDictionary&gt;) -&gt; ()"
+                  moduleName = "oumiji"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ominext/Desktop/oumiji/oumiji/ViewController/CamViewController.swift"
+                  timestampString = "555933831.346364"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
