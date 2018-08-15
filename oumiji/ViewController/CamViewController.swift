@@ -193,8 +193,16 @@ extension CamViewController: AffdexCameraDelegate {
                     }
                     
                     //Update Name here
-                
+                    
+                    
+                    
                     if self.face.glasses {
+                        if self.face.female {
+                            if confidence < 0.8 {
+                                self.updateError(error: "Không có dữ liệu khuôn mặt")
+                                return
+                            }
+                        }
                         if confidence < 0.91 {
                             self.updateError(error: "Không có dữ liệu khuôn mặt")
                             return
@@ -202,7 +210,7 @@ extension CamViewController: AffdexCameraDelegate {
                     }
                     
                     if self.face.female {
-                        if confidence < 0.75 {
+                        if confidence < 0.8 {
                             self.updateError(error: "Không có dữ liệu khuôn mặt")
                             return
                         }
@@ -215,6 +223,7 @@ extension CamViewController: AffdexCameraDelegate {
                     
                     print("\(self.face.name): G:\(self.face.glasses), F:\(self.face.female)")
                     self.updateName(name: name)
+                    self.firstEmotion(face: self.face)
                 } else {
                     self.updateError(error: "Không có dữ liệu khuôn mặt")
                 }
@@ -302,9 +311,9 @@ extension CamViewController {
     }
     
     func updateName(name: String) {
-        helloLcentreYcontraint.constant = -self.helloV.frame.height/4
-        nameLcentreYContraint.constant = -self.helloV.frame.height/3                                                                                           
-        notiVcontraint.constant = 60
+        self.helloLcentreYcontraint.constant = -self.helloV.frame.height/4
+        self.nameLcentreYContraint.constant = -self.helloV.frame.height/3
+        self.notiVcontraint.constant = 60
         
         UIView.animate(withDuration: 0.5, animations: {
             self.helloL.center.y = self.helloV.frame.height/2
@@ -331,6 +340,7 @@ extension CamViewController {
                     self.helloL.alpha = 1
                     self.notiV.center.y += self.notiV.frame.height
                     self.notiV.alpha = 1
+       
                 }
             }
         }
@@ -408,29 +418,43 @@ extension CamViewController {
             }
         }
         
-        if !fastMode {
-            _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(toHelloViewController(_:)), userInfo: nil, repeats: false)
-            return
-        }
-        
-        _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(restartDetect), userInfo: nil, repeats: false)
-        
         if error == "Không có kết nối" {
             _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(toHelloViewController(_:)), userInfo: nil, repeats: false)
             
             return
         }
+
         
+        if !fastMode {
+            //_ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(toHelloViewController(_:)), userInfo: nil, repeats: false)
+            return
+        }
+        
+        _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(restartDetect), userInfo: nil, repeats: false)
         
         
      
     }
     
+    func firstEmotion(face: FaceObject) {
+        faceI.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        faceI.alpha = 0
+        
+        UIView.animate(withDuration: 0.2) {
+            self.faceI.transform = .identity
+            self.faceI.alpha = 1
+        }
+    }
     
     @objc func updateEmotion(face: FaceObject) {
-        let image = emotionImage(face: face)
-        
-        faceI.image = image
+        if (face.face_id != "")
+        {
+            let image = emotionImage(face: face)
+            
+            faceI.image = image
+        } else {
+            faceI.image = nil
+        }
     }
     
     func emotionImage(face: FaceObject) -> UIImage? {
@@ -503,5 +527,3 @@ extension CamViewController: CamViewControllerDelegate {
         restartDetect()
     }
 }
-
-

@@ -40,6 +40,8 @@ class HelloViewController: UIViewController {
                     }
                 }
             })
+        
+        
         //}
 
     }
@@ -51,11 +53,12 @@ class HelloViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.helloL.alpha = 1
             self.startB.alpha = 1
+            
+            self.helloV.frame.origin.y = 0
         }
     }
 
     @IBAction func start(_ sender: UIButton) {
-        
         if affdexCameraSucces == false {
             cameraIsPending = true
             return
@@ -68,16 +71,23 @@ class HelloViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func setting(_ sender: Any) {
+        let settingView = SettingView.init(frame: self.view.bounds)
+        self.view.addSubview(settingView)
+    }
 }
 
 extension HelloViewController {
     func openCamViewController() {
         UIView.animate(withDuration: 0.5, animations: {
-            self.helloV.frame.size.height = 90
+            //self.helloV.frame.size.height = self.view.frame.height/10
             
             self.helloL.alpha = 0
             
             self.startB.alpha = 0
+            
+            self.helloV.frame.origin.y -= self.helloV.frame.size.height*9/10
         }) { (Done) in
             
             // Next View Controller
@@ -92,9 +102,13 @@ extension HelloViewController {
     
     func openAffViewController() {
         UIView.animate(withDuration: 0.5, animations: {
-            self.helloV.frame.size.height = 90
+            //self.helloV.frame.size.height = 90
             
             self.helloL.alpha = 0
+            
+            self.startB.alpha = 0
+            
+            self.helloV.frame.origin.y -= self.helloV.frame.size.height*9/10
         }) { (Done) in
             
             // Next View Controller

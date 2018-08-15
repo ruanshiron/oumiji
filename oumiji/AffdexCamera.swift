@@ -142,7 +142,7 @@ extension AffdexCamera {
         } else {
             
             if timeisWorking == false {
-                self.timeToRe = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(restart), userInfo: nil, repeats: false)
+                self.timeToRe = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(restart), userInfo: nil, repeats: false)
                 self.timeisWorking = true
             }
         }      

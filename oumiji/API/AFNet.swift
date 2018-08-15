@@ -21,11 +21,11 @@ typealias CompletionRequest = ((_ resutl: Result)->Void)?
 
 class NetWork: AFHTTPSessionManager {
     
-    static let shared: NetWork = NetWork(baseURL: URL(string: "http://192.168.1.67:8888/testExample/imageRequest.php"), sessionConfiguration: nil)
+    static let shared: NetWork = NetWork(baseURL: URL(string: "http://192.168.1.67:8888/API/advice.php"), sessionConfiguration: nil)
     
-    static let shared2: NetWork = NetWork(baseURL: URL(string: "http://192.168.1.67:8888/testExample/request.php"), sessionConfiguration: nil)
+    static let shared2: NetWork = NetWork(baseURL: URL(string: "http://192.168.1.67:8888/API/emotion.php"), sessionConfiguration: nil)
     
-    static let shared3: NetWork = NetWork(baseURL: URL(string: "http://192.168.1.67:8888/testExample/sent.php"), sessionConfiguration: nil)
+    static let shared3: NetWork = NetWork(baseURL: URL(string: "http://192.168.1.67:8888/API/sent.php"), sessionConfiguration: nil)
     
     override init(baseURL url: URL?, sessionConfiguration configuration: URLSessionConfiguration?) {
         super.init(baseURL: url, sessionConfiguration: configuration)
