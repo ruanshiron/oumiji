@@ -81,7 +81,17 @@ extension AffdexCamera {
     }
     
     func resetDetector() {
-        reuseDetector()
+        if self.timeisWorking {
+            self.timeToRe.invalidate()
+        }
+        
+        cameraReady = false
+        
+        hadKairos = false
+        
+        timeisWorking = false
+        
+        errorTime = 0
         
         let error = self.detector?.stop()
         

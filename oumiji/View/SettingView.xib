@@ -34,7 +34,7 @@
                     <blurEffect style="dark"/>
                 </visualEffectView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HV-KS-697">
-                    <rect key="frame" x="52" y="36" width="307" height="277"/>
+                    <rect key="frame" x="34" y="195" width="307" height="277"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcf-Be-DII">
                             <rect key="frame" x="0.0" y="0.0" width="307" height="61"/>
@@ -155,12 +155,12 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="9HV-KS-697" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="602-3b-UHE"/>
+                <constraint firstItem="9HV-KS-697" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3bh-8m-WoC"/>
                 <constraint firstItem="DNC-hU-OPf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cbK-0E-yHT"/>
                 <constraint firstItem="DNC-hU-OPf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fZv-Fj-n4g"/>
                 <constraint firstItem="DNC-hU-OPf" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="niP-dV-ZXO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9HV-KS-697" secondAttribute="trailing" constant="16" id="qjJ-AQ-bGA"/>
                 <constraint firstItem="DNC-hU-OPf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="rFt-6c-Fel"/>
+                <constraint firstItem="9HV-KS-697" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="xSb-GI-zCd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>

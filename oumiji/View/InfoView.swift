@@ -42,6 +42,10 @@ class InfoView: UIView, UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func didMoveToSuperview() {
+        //
+    }
+    
     func customInit() {
         Bundle.main.loadNibNamed("InfoView", owner: self, options: nil)
         self.addSubview(content)
@@ -86,6 +90,15 @@ class InfoView: UIView, UIScrollViewDelegate {
     }
     
     @IBAction func back(_ sender: Any) {
-        self.removeFromSuperview()
+        UIView.transition(with: self.superview!,
+                          duration: 0.5,
+                          options: [UIViewAnimationOptions.transitionFlipFromLeft],
+                          animations: {
+                            self.removeFromSuperview()
+        },
+                          completion: { (_) in
+                            
+        })
+        
     }
 }

@@ -69,6 +69,20 @@ class SettingView: UIView {
     
     override func didMoveToSuperview() {
         layoutInSuperView()
+        blurView.alpha = 0
+        settingFeature.alpha = 0
+        settingFeature.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurView.alpha = 1
+        }) { (Done) in
+            if Done {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.settingFeature.transform = .identity
+                    self.settingFeature.alpha = 1
+                })
+            }
+        }
     }
     
     override func removeFromSuperview() {
@@ -95,10 +109,17 @@ class SettingView: UIView {
     }
     
     @objc fileprivate func destroySettingView(_ sender: UIView) {
-        
-        self.content.removeFromSuperview()
-        self.content = nil
-        self.removeFromSuperview()
+ 
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurView.alpha = 0
+            self.settingFeature.alpha = 0
+        }) { (Done) in
+            if Done {
+                self.removeFromSuperview()
+            }
+        }
+//        self.content.removeFromSuperview()
+//        self.content = nil
     }
     
     @IBAction func guestMode(_ sender: UISwitch) {

@@ -75,20 +75,28 @@ class HelloViewController: UIViewController {
     }
     
     @IBAction func setting(_ sender: Any) {
-        var settingView: SettingView? = SettingView.init(frame: self.view.bounds)
+        let settingView: SettingView? = SettingView.init(frame: self.view.bounds)
         
         self.view.addSubview(settingView!)
-        settingView?.didClose = {
-            settingView = nil
-        }
+//        settingView?.didClose = {
+//            settingView = nil
+//        }
         
     }
     @IBAction func infor(_ sender: Any) {
         let infoView = InfoView(frame: self.view.bounds)
+        UIView.transition(with: self.view,
+                          duration: 0.5,
+                          options: [UIViewAnimationOptions.transitionFlipFromLeft],
+                          animations: {
+                             self.view.addSubview(infoView)
+        },
+                          completion: { (_) in
+                            
+        })
         
-
         
-        self.view.addSubview(infoView)
+       
     }
 }
 

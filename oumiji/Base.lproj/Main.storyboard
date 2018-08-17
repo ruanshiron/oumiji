@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,14 +17,14 @@
             <objects>
                 <viewController storyboardIdentifier="HelloViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HelloViewController" customModule="oumiji" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSY-Ja-ROw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHB-fV-YIx">
-                                        <rect key="frame" x="50" y="-22" width="305" height="310.5"/>
+                                        <rect key="frame" x="50" y="129" width="603.5" height="186.5"/>
                                         <string key="text">Xin chào
 Ơ, Đừng đi vội
 Lại đây xin tí cảm xúc nào</string>
@@ -33,13 +33,13 @@ Lại đây xin tí cảm xúc nào</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mhappy-1" translatesAutoresizingMaskIntoConstraints="NO" id="ay3-kG-a7B">
-                                        <rect key="frame" x="54.5" y="283.5" width="267" height="267"/>
+                                        <rect key="frame" x="195" y="472.5" width="445" height="445"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ay3-kG-a7B" secondAttribute="height" multiplier="1:1" id="4ah-RI-lZu"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffj-zV-ha0">
-                                        <rect key="frame" x="335" y="8" width="32" height="32"/>
+                                        <rect key="frame" x="786" y="16" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="jUJ-xI-cYW"/>
                                             <constraint firstAttribute="width" secondItem="ffj-zV-ha0" secondAttribute="height" id="rNh-Q4-QBC"/>
@@ -53,7 +53,7 @@ Lại đây xin tí cảm xúc nào</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcz-G1-Asa">
-                                        <rect key="frame" x="8" y="8" width="64.5" height="24"/>
+                                        <rect key="frame" x="16" y="16" width="64.5" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Qcz-G1-Asa" secondAttribute="height" multiplier="1027:379" id="ImR-oG-WMG"/>
                                             <constraint firstAttribute="height" constant="24" id="gEK-Sb-gev"/>
@@ -61,7 +61,7 @@ Lại đây xin tí cảm xúc nào</string>
                                         <state key="normal" title="Button" image="LogoOminext-1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX7-Oc-BKP">
-                                        <rect key="frame" x="287" y="8" width="32" height="32"/>
+                                        <rect key="frame" x="738" y="16" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="C3B-zP-C48"/>
                                             <constraint firstAttribute="width" secondItem="uX7-Oc-BKP" secondAttribute="height" id="jYl-2c-nas"/>
@@ -102,7 +102,7 @@ Lại đây xin tí cảm xúc nào</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-9q-Yfo">
-                                <rect key="frame" x="20" y="593" width="335" height="54"/>
+                                <rect key="frame" x="20" y="1038" width="794" height="54"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="       Bắt đầu       ">
@@ -140,17 +140,17 @@ Lại đây xin tí cảm xúc nào</string>
             <objects>
                 <viewController storyboardIdentifier="CamViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hZy-AC-PqC" customClass="CamViewController" customModule="oumiji" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C6q-uN-Zy7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KIP-4Q-8iM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-5D-TXK">
-                                <rect key="frame" x="0.0" y="74" width="375" height="61"/>
+                                <rect key="frame" x="0.0" y="124.5" width="834" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hãy chọn một cảm xúc bên dưới" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-al-dXm">
-                                        <rect key="frame" x="20" y="16" width="335" height="29"/>
+                                        <rect key="frame" x="20" y="16" width="794" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -165,16 +165,16 @@ Lại đây xin tí cảm xúc nào</string>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sI8-MI-4uP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="125.5"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xin Chào" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZn-o7-6yD">
-                                        <rect key="frame" x="20" y="27" width="335" height="21"/>
+                                        <rect key="frame" x="20" y="52" width="794" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nguyễn Thê Vinh" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4n-rB-eZK">
-                                        <rect key="frame" x="20" y="57" width="335" height="36"/>
+                                        <rect key="frame" x="20" y="107.5" width="794" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -191,13 +191,13 @@ Lại đây xin tí cảm xúc nào</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6e-nu-eZz">
-                                <rect key="frame" x="0.0" y="593" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="972.5" width="834" height="119.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbK-SK-4n3">
-                                        <rect key="frame" x="26.5" y="0.0" width="322" height="54"/>
+                                        <rect key="frame" x="59.5" y="0.0" width="715" height="119.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTS-zc-MeT">
-                                                <rect key="frame" x="53.5" y="0.0" width="54" height="54"/>
+                                                <rect key="frame" x="119" y="0.0" width="119.5" height="119.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="isad">
                                                     <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -207,7 +207,7 @@ Lại đây xin tí cảm xúc nào</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsZ-Nc-oTr">
-                                                <rect key="frame" x="161" y="0.0" width="53.5" height="54"/>
+                                                <rect key="frame" x="357.5" y="0.0" width="119" height="119.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="isurprise">
                                                     <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -217,7 +217,7 @@ Lại đây xin tí cảm xúc nào</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57V-aw-iAJ">
-                                                <rect key="frame" x="107.5" y="0.0" width="53.5" height="54"/>
+                                                <rect key="frame" x="238.5" y="0.0" width="119" height="119.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="ifear">
                                                     <color key="titleColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -227,7 +227,7 @@ Lại đây xin tí cảm xúc nào</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPg-ee-PxA">
-                                                <rect key="frame" x="268.5" y="0.0" width="53.5" height="54"/>
+                                                <rect key="frame" x="596" y="0.0" width="119" height="119.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="ineutral">
                                                     <color key="titleColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -237,7 +237,7 @@ Lại đây xin tí cảm xúc nào</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R0-Bd-9or">
-                                                <rect key="frame" x="214.5" y="0.0" width="54" height="54"/>
+                                                <rect key="frame" x="476.5" y="0.0" width="119.5" height="119.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="iangry">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -247,7 +247,7 @@ Lại đây xin tí cảm xúc nào</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfS-SJ-Oh4">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="119" height="119.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" image="ihappy">
                                                     <color key="titleColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -285,10 +285,10 @@ Lại đây xin tí cảm xúc nào</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNV-Sx-aXn">
-                                        <rect key="frame" x="348.5" y="0.0" width="26.5" height="54"/>
+                                        <rect key="frame" x="774.5" y="0.0" width="59.5" height="119.5"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLM-FS-g4i">
-                                        <rect key="frame" x="0.0" y="0.0" width="26.5" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="119.5"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -308,7 +308,7 @@ Lại đây xin tí cảm xúc nào</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A7x-fu-WfH">
-                                <rect key="frame" x="287" y="47.5" width="54" height="54.5"/>
+                                <rect key="frame" x="694" y="40.5" width="119.5" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="A7x-fu-WfH" secondAttribute="height" id="n95-s1-VJm"/>
                                 </constraints>
@@ -318,7 +318,7 @@ Lại đây xin tí cảm xúc nào</string>
                         <constraints>
                             <constraint firstItem="KIP-4Q-8iM" firstAttribute="top" secondItem="C6q-uN-Zy7" secondAttribute="top" id="0Y0-4v-7KQ"/>
                             <constraint firstItem="A7x-fu-WfH" firstAttribute="width" secondItem="KIP-4Q-8iM" secondAttribute="width" multiplier="1:7" id="0ww-pg-uAp"/>
-                            <constraint firstItem="LYJ-jo-t02" firstAttribute="trailing" secondItem="A7x-fu-WfH" secondAttribute="trailing" multiplier="1.1" id="27f-BE-uPH"/>
+                            <constraint firstItem="LYJ-jo-t02" firstAttribute="trailing" secondItem="A7x-fu-WfH" secondAttribute="trailing" multiplier="1.025" id="27f-BE-uPH"/>
                             <constraint firstItem="sI8-MI-4uP" firstAttribute="leading" secondItem="C6q-uN-Zy7" secondAttribute="leading" id="6r3-87-kBr"/>
                             <constraint firstItem="sI8-MI-4uP" firstAttribute="height" secondItem="C6q-uN-Zy7" secondAttribute="height" multiplier="64/568" id="Nr4-bk-4zB"/>
                             <constraint firstItem="KIP-4Q-8iM" firstAttribute="trailing" secondItem="LYJ-jo-t02" secondAttribute="trailing" id="Ql7-ZJ-lVf"/>
@@ -327,7 +327,7 @@ Lại đây xin tí cảm xúc nào</string>
                             <constraint firstAttribute="trailing" secondItem="sI8-MI-4uP" secondAttribute="trailing" id="cpt-CO-dme"/>
                             <constraint firstItem="LYJ-jo-t02" firstAttribute="bottom" secondItem="T6e-nu-eZz" secondAttribute="bottom" constant="20" id="ftv-Io-OlX"/>
                             <constraint firstItem="sI8-MI-4uP" firstAttribute="top" secondItem="C6q-uN-Zy7" secondAttribute="top" id="jrh-Qr-qy4"/>
-                            <constraint firstItem="A7x-fu-WfH" firstAttribute="centerY" secondItem="sI8-MI-4uP" secondAttribute="centerY" multiplier="2" id="pBL-iX-tib"/>
+                            <constraint firstItem="A7x-fu-WfH" firstAttribute="centerY" secondItem="sI8-MI-4uP" secondAttribute="centerY" multiplier="1.6" id="pBL-iX-tib"/>
                             <constraint firstItem="bdO-5D-TXK" firstAttribute="leading" secondItem="LYJ-jo-t02" secondAttribute="leading" id="qN8-Vx-kHZ"/>
                             <constraint firstItem="KIP-4Q-8iM" firstAttribute="bottom" secondItem="LYJ-jo-t02" secondAttribute="bottom" id="ten-KM-RiB"/>
                             <constraint firstItem="T6e-nu-eZz" firstAttribute="trailing" secondItem="LYJ-jo-t02" secondAttribute="trailing" id="uAL-hE-rCg"/>
@@ -365,23 +365,23 @@ Lại đây xin tí cảm xúc nào</string>
             <objects>
                 <viewController storyboardIdentifier="AffViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vot-wM-IWQ" customClass="AffViewController" customModule="oumiji" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bQ1-Xn-jBa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-WS-akH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-VD-5iS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="125.5"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMu-Cs-eb8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="834" height="125.5"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wvq-YF-Are">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="834" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUR-gn-zgf">
-                                                    <rect key="frame" x="-12" y="0.0" width="75" height="75"/>
+                                                    <rect key="frame" x="-12" y="0.0" width="125.5" height="125.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KUR-gn-zgf" secondAttribute="height" id="QDz-g5-IOy"/>
                                                     </constraints>
@@ -391,7 +391,7 @@ Lại đây xin tí cảm xúc nào</string>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-wn-LAQ">
-                                                    <rect key="frame" x="180.5" y="27" width="14" height="20"/>
+                                                    <rect key="frame" x="410" y="52" width="14" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -421,7 +421,7 @@ Lại đây xin tí cảm xúc nào</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D6p-f8-w6P">
-                                <rect key="frame" x="278" y="41" width="63" height="68.5"/>
+                                <rect key="frame" x="618.5" y="50" width="139.5" height="151"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="D6p-f8-w6P" secondAttribute="height" multiplier="119:128" id="b4W-xR-YvV"/>
                                 </constraints>
@@ -459,21 +459,21 @@ Lại đây xin tí cảm xúc nào</string>
             <objects>
                 <viewController storyboardIdentifier="ByeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Zd-Bm-60s" customClass="ByeViewController" customModule="oumiji" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H1J-qK-9GX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAL-Ym-ORq">
-                                <rect key="frame" x="30" y="229.5" width="315" height="256"/>
+                                <rect key="frame" x="30" y="452" width="774" height="256"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="klfjskasjflksjflsafjklsdfjalsfjalsdjfldfjaksjflsdfjdlkfjdklfjdkfjdkfjdkfjdkfjdkfjdkfdjfkdjfdkfjdkfjdkfjdkf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnQ-zP-WGe">
-                                        <rect key="frame" x="24" y="88" width="267" height="144"/>
+                                        <rect key="frame" x="24" y="88" width="726" height="144"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEi-Ng-wxz">
-                                        <rect key="frame" x="24" y="24" width="267" height="60"/>
+                                        <rect key="frame" x="24" y="24" width="726" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Xue-Fh-Qfq"/>
                                         </constraints>
@@ -495,14 +495,14 @@ Lại đây xin tí cảm xúc nào</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-7r-We4">
-                                <rect key="frame" x="123.5" y="129.5" width="128" height="128"/>
+                                <rect key="frame" x="353" y="352" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="ZKc-eb-ofL"/>
                                     <constraint firstAttribute="height" constant="128" id="vfh-St-Wlf"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bn-Ql-G7B">
-                                <rect key="frame" x="200" y="593" width="155" height="54"/>
+                                <rect key="frame" x="659" y="1038" width="155" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="  Kết thúc  ">
