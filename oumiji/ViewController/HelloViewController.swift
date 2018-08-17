@@ -43,7 +43,8 @@ class HelloViewController: UIViewController {
         
         
         //}
-
+        
+        setHelloForDevice()
     }
     
     
@@ -59,6 +60,7 @@ class HelloViewController: UIViewController {
     }
 
     @IBAction func start(_ sender: UIButton) {
+        
         if affdexCameraSucces == false {
             cameraIsPending = true
             return
@@ -73,8 +75,20 @@ class HelloViewController: UIViewController {
     }
     
     @IBAction func setting(_ sender: Any) {
-        let settingView = SettingView.init(frame: self.view.bounds)
-        self.view.addSubview(settingView)
+        var settingView: SettingView? = SettingView.init(frame: self.view.bounds)
+        
+        self.view.addSubview(settingView!)
+        settingView?.didClose = {
+            settingView = nil
+        }
+        
+    }
+    @IBAction func infor(_ sender: Any) {
+        let infoView = InfoView(frame: self.view.bounds)
+        
+
+        
+        self.view.addSubview(infoView)
     }
 }
 
@@ -118,6 +132,16 @@ extension HelloViewController {
                 let NextVC = Storyboard.instantiateViewController(withIdentifier: "AffViewController") as! AffViewController
                 self.present(NextVC, animated: false, completion: nil)
             }
+        }
+    }
+    
+    func setHelloForDevice() {
+        let model = UIDevice.modelName
+        let device = model.components(separatedBy: " ")
+        let iphone = device[0]
+        
+        if iphone == "iPhone" {
+            helloL.font = helloL.font.withSize(24)
         }
     }
 }

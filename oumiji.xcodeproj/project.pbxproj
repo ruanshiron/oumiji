@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		834DB05721212B2E00B5299D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 834DB05621212B2E00B5299D /* Settings.bundle */; };
 		8355105321215F9600715B20 /* AffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355105221215F9600715B20 /* AffViewController.swift */; };
+		835A868121254DBB00281727 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A868021254DBB00281727 /* InfoView.swift */; };
+		835A868321254E0300281727 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835A868221254E0300281727 /* InfoView.xib */; };
 		837D5D9421182E1A00DD06F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D5D9321182E1A00DD06F1 /* AppDelegate.swift */; };
 		837D5D9621182E1A00DD06F1 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D5D9521182E1A00DD06F1 /* HelloViewController.swift */; };
 		837D5D9921182E1A00DD06F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D5D9721182E1A00DD06F1 /* Main.storyboard */; };
@@ -19,6 +21,9 @@
 		838E9BDB2123E1F1003346A0 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 838E9BDA2123E1F1003346A0 /* SettingView.xib */; };
 		838E9BDD2123E204003346A0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838E9BDC2123E204003346A0 /* SettingView.swift */; };
 		8396C31F211BFB3000AD9F3C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396C31E211BFB3000AD9F3C /* Result.swift */; };
+		839E349621266577005BA07C /* TutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839E349521266577005BA07C /* TutView.swift */; };
+		839E349821266ADC005BA07C /* TutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839E349721266ADC005BA07C /* TutView.xib */; };
+		839E349A2126A8EB005BA07C /* DeviceExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839E34992126A8EB005BA07C /* DeviceExtention.swift */; };
 		83B322BD211935B800960761 /* FaceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B322BC211935B800960761 /* FaceObject.swift */; };
 		83B322BF2119381400960761 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B322BE2119381400960761 /* API.swift */; };
 		83B322C121193D4F00960761 /* Kairos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B322C021193D4F00960761 /* Kairos.swift */; };
@@ -33,6 +38,8 @@
 		7FD7D229FA5A49C0EB224AF7 /* Pods_oumiji.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_oumiji.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		834DB05621212B2E00B5299D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8355105221215F9600715B20 /* AffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffViewController.swift; sourceTree = "<group>"; };
+		835A868021254DBB00281727 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		835A868221254E0300281727 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		837D5D9021182E1900DD06F1 /* oumiji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oumiji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837D5D9321182E1A00DD06F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837D5D9521182E1A00DD06F1 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +52,9 @@
 		838E9BDA2123E1F1003346A0 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		838E9BDC2123E204003346A0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		8396C31E211BFB3000AD9F3C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		839E349521266577005BA07C /* TutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutView.swift; sourceTree = "<group>"; };
+		839E349721266ADC005BA07C /* TutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutView.xib; sourceTree = "<group>"; };
+		839E34992126A8EB005BA07C /* DeviceExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceExtention.swift; sourceTree = "<group>"; };
 		83B322BC211935B800960761 /* FaceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceObject.swift; sourceTree = "<group>"; };
 		83B322BE2119381400960761 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		83B322C021193D4F00960761 /* Kairos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kairos.swift; sourceTree = "<group>"; };
@@ -91,6 +101,7 @@
 				83B679F4211AED9900F1D2E1 /* API */,
 				83B322BC211935B800960761 /* FaceObject.swift */,
 				83B322C22119511E00960761 /* AffdexCamera.swift */,
+				839E34992126A8EB005BA07C /* DeviceExtention.swift */,
 				834DB05621212B2E00B5299D /* Settings.bundle */,
 				837D5D9721182E1A00DD06F1 /* Main.storyboard */,
 				837D5D9C21182E2600DD06F1 /* LaunchScreen.storyboard */,
@@ -105,6 +116,10 @@
 			children = (
 				838E9BDA2123E1F1003346A0 /* SettingView.xib */,
 				838E9BDC2123E204003346A0 /* SettingView.swift */,
+				835A868221254E0300281727 /* InfoView.xib */,
+				835A868021254DBB00281727 /* InfoView.swift */,
+				839E349721266ADC005BA07C /* TutView.xib */,
+				839E349521266577005BA07C /* TutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,9 +223,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835A868321254E0300281727 /* InfoView.xib in Resources */,
 				834DB05721212B2E00B5299D /* Settings.bundle in Resources */,
 				837D5D9E21182E2600DD06F1 /* LaunchScreen.storyboard in Resources */,
 				837D5D9B21182E2600DD06F1 /* Assets.xcassets in Resources */,
+				839E349821266ADC005BA07C /* TutView.xib in Resources */,
 				838E9BDB2123E1F1003346A0 /* SettingView.xib in Resources */,
 				837D5D9921182E1A00DD06F1 /* Main.storyboard in Resources */,
 			);
@@ -272,7 +289,9 @@
 				837D5DA62118314700DD06F1 /* CamViewController.swift in Sources */,
 				83B322C32119511E00960761 /* AffdexCamera.swift in Sources */,
 				8355105321215F9600715B20 /* AffViewController.swift in Sources */,
+				839E349621266577005BA07C /* TutView.swift in Sources */,
 				837D5DA82118317600DD06F1 /* ByeViewController.swift in Sources */,
+				835A868121254DBB00281727 /* InfoView.swift in Sources */,
 				837D5D9621182E1A00DD06F1 /* HelloViewController.swift in Sources */,
 				8396C31F211BFB3000AD9F3C /* Result.swift in Sources */,
 				83B322BD211935B800960761 /* FaceObject.swift in Sources */,
@@ -280,6 +299,7 @@
 				838E9BDD2123E204003346A0 /* SettingView.swift in Sources */,
 				837D5D9421182E1A00DD06F1 /* AppDelegate.swift in Sources */,
 				83B322BF2119381400960761 /* API.swift in Sources */,
+				839E349A2126A8EB005BA07C /* DeviceExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -316,7 +316,7 @@ extension CamViewController {
         self.notiVcontraint.constant = 60
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.helloL.center.y = self.helloV.frame.height/2
+            //self.helloL.center.y = self.helloV.frame.height/2
 //            self.nameL.center.y = self.helloV.frame.height - 20
             self.helloL.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             self.helloL.alpha = 1
