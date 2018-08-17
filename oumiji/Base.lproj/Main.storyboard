@@ -146,7 +146,7 @@ Lại đây xin tí cảm xúc nào</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KIP-4Q-8iM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-5D-TXK">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-5D-TXK">
                                 <rect key="frame" x="0.0" y="74" width="375" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hãy chọn một cảm xúc bên dưới" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-al-dXm">
@@ -164,7 +164,7 @@ Lại đây xin tí cảm xúc nào</string>
                                     <constraint firstAttribute="bottom" secondItem="Ngu-al-dXm" secondAttribute="bottom" constant="16" id="xY2-Wn-SuL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sI8-MI-4uP">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sI8-MI-4uP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xin Chào" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZn-o7-6yD">
@@ -349,6 +349,7 @@ Lại đây xin tí cảm xúc nào</string>
                         <outlet property="nameL" destination="I4n-rB-eZK" id="mPq-NT-hX6"/>
                         <outlet property="nameLcentreYContraint" destination="qgT-YE-27i" id="LkR-pW-pfR"/>
                         <outlet property="neutralB" destination="tPg-ee-PxA" id="JFV-wS-Z2y"/>
+                        <outlet property="notiL" destination="Ngu-al-dXm" id="NxU-p7-GxE"/>
                         <outlet property="notiV" destination="bdO-5D-TXK" id="B3y-Wg-PYL"/>
                         <outlet property="notiVcontraint" destination="xNn-RG-07G" id="FX6-Jg-g6g"/>
                         <outlet property="sadB" destination="eTS-zc-MeT" id="9cL-iC-0BE"/>

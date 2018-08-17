@@ -34,6 +34,8 @@ class CamViewController: UIViewController {
     
     @IBOutlet weak var notiV: UIView!
     
+    @IBOutlet weak var notiL: UILabel!
+    
     @IBOutlet weak var notiVcontraint: NSLayoutConstraint!
     
     @IBOutlet weak var happyB: UIButton!
@@ -330,7 +332,7 @@ extension CamViewController {
             self.emoV.isHidden = false
             self.emoV.alpha = 1
             
-            
+            self.notiL.text = "Hôm nay bạn thấy thế nào, hãy chọn một biểu cảm nhé"
         }) { (Done) in
             if Done {
                 self.helloL.alpha = 0
@@ -412,9 +414,18 @@ extension CamViewController {
                     self.helloL.alpha = 1
                     
                     self.helloV.backgroundColor = .red
-                    
                 })
                 
+            }
+        }
+        
+        if error == "Không có dữ liệu khuôn mặt", face.glasses == true {
+            self.notiVcontraint.constant = 60
+            UIView.animate(withDuration: 0.5) {
+                self.notiL.text = "Có thể vì bạn đang đeo kính, hãy thử lại"
+                
+                self.notiV.center.y += self.notiV.frame.height
+                self.notiV.alpha = 1
             }
         }
         
