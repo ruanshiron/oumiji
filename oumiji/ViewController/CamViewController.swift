@@ -175,12 +175,13 @@ extension CamViewController: AffdexCameraDelegate {
                 
                 if let error = error {
                     print(error as AnyObject)
-                    
-                    AffdexCamera.instance().errorTime += 1
-                    AffdexCamera.instance().hadKairos = false
-                    
+      
                     if AffdexCamera.instance().errorTime >= 3 {
+                        AffdexCamera.instance().hadKairos = true
                         self.updateError(error: error as! String)
+                    } else {
+                        AffdexCamera.instance().errorTime += 1
+                        AffdexCamera.instance().hadKairos = false
                     }
                     return
                 }
@@ -416,11 +417,12 @@ extension CamViewController {
     }
     
     func ultimateUpdateError(error: String) {
-        AffdexCamera.instance().errorTime += 1
-        AffdexCamera.instance().hadKairos = false
-        
         if AffdexCamera.instance().errorTime >= 3 {
+            AffdexCamera.instance().hadKairos = true
             self.updateError(error: error)
+        } else {
+            AffdexCamera.instance().errorTime += 1
+            AffdexCamera.instance().hadKairos = false
         }
     }
     
