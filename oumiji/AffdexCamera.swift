@@ -111,6 +111,7 @@ extension AffdexCamera {
         
         errorTime = 0
         
+        // walkarround 
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(readyCamera), userInfo: nil, repeats: false)
     }
     

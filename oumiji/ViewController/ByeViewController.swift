@@ -29,6 +29,8 @@ class ByeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setForDevice()
+        
         backB.layer.cornerRadius = backB.layer.frame.height/6
         emoI.alpha = 0
         infoV.alpha = 0
@@ -143,6 +145,16 @@ extension ByeViewController {
             break
         default:
             break
+        }
+    }
+    
+    func setForDevice() {
+        let model = UIDevice.modelName
+        let device = model.components(separatedBy: " ")
+        let iphone = device[0]
+        
+        if iphone == "iPhone" {
+            nameL.font = nameL.font.withSize(18)
         }
     }
 }

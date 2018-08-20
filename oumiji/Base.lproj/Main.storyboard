@@ -147,10 +147,10 @@ Lại đây xin tí cảm xúc nào</string>
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-5D-TXK">
-                                <rect key="frame" x="0.0" y="124.5" width="834" height="61"/>
+                                <rect key="frame" x="0.0" y="124.5" width="834" height="69"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hãy chọn một cảm xúc bên dưới" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-al-dXm">
-                                        <rect key="frame" x="20" y="16" width="794" height="29"/>
+                                        <rect key="frame" x="20" y="20" width="794" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -158,10 +158,10 @@ Lại đây xin tí cảm xúc nào</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Ngu-al-dXm" firstAttribute="top" secondItem="bdO-5D-TXK" secondAttribute="top" constant="16" id="JK3-VN-MLA"/>
+                                    <constraint firstItem="Ngu-al-dXm" firstAttribute="top" secondItem="bdO-5D-TXK" secondAttribute="top" constant="20" symbolic="YES" id="JK3-VN-MLA"/>
                                     <constraint firstAttribute="trailing" secondItem="Ngu-al-dXm" secondAttribute="trailing" constant="20" symbolic="YES" id="n8I-1g-www"/>
                                     <constraint firstItem="Ngu-al-dXm" firstAttribute="leading" secondItem="bdO-5D-TXK" secondAttribute="leading" constant="20" symbolic="YES" id="vtD-6U-ohh"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ngu-al-dXm" secondAttribute="bottom" constant="16" id="xY2-Wn-SuL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ngu-al-dXm" secondAttribute="bottom" constant="20" symbolic="YES" id="xY2-Wn-SuL"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sI8-MI-4uP">
@@ -326,12 +326,12 @@ Lại đây xin tí cảm xúc nào</string>
                             <constraint firstItem="KIP-4Q-8iM" firstAttribute="leading" secondItem="LYJ-jo-t02" secondAttribute="leading" id="VgH-4k-UTW"/>
                             <constraint firstAttribute="trailing" secondItem="sI8-MI-4uP" secondAttribute="trailing" id="cpt-CO-dme"/>
                             <constraint firstItem="LYJ-jo-t02" firstAttribute="bottom" secondItem="T6e-nu-eZz" secondAttribute="bottom" constant="20" id="ftv-Io-OlX"/>
+                            <constraint firstItem="bdO-5D-TXK" firstAttribute="top" secondItem="sI8-MI-4uP" secondAttribute="bottom" constant="-1" id="iuq-PR-IgJ"/>
                             <constraint firstItem="sI8-MI-4uP" firstAttribute="top" secondItem="C6q-uN-Zy7" secondAttribute="top" id="jrh-Qr-qy4"/>
                             <constraint firstItem="A7x-fu-WfH" firstAttribute="centerY" secondItem="sI8-MI-4uP" secondAttribute="centerY" multiplier="1.6" id="pBL-iX-tib"/>
                             <constraint firstItem="bdO-5D-TXK" firstAttribute="leading" secondItem="LYJ-jo-t02" secondAttribute="leading" id="qN8-Vx-kHZ"/>
                             <constraint firstItem="KIP-4Q-8iM" firstAttribute="bottom" secondItem="LYJ-jo-t02" secondAttribute="bottom" id="ten-KM-RiB"/>
                             <constraint firstItem="T6e-nu-eZz" firstAttribute="trailing" secondItem="LYJ-jo-t02" secondAttribute="trailing" id="uAL-hE-rCg"/>
-                            <constraint firstItem="bdO-5D-TXK" firstAttribute="bottom" secondItem="sI8-MI-4uP" secondAttribute="bottom" constant="60" id="xNn-RG-07G"/>
                             <constraint firstItem="T6e-nu-eZz" firstAttribute="leading" secondItem="LYJ-jo-t02" secondAttribute="leading" id="yfI-0Q-0af"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LYJ-jo-t02"/>
@@ -351,7 +351,7 @@ Lại đây xin tí cảm xúc nào</string>
                         <outlet property="neutralB" destination="tPg-ee-PxA" id="JFV-wS-Z2y"/>
                         <outlet property="notiL" destination="Ngu-al-dXm" id="NxU-p7-GxE"/>
                         <outlet property="notiV" destination="bdO-5D-TXK" id="B3y-Wg-PYL"/>
-                        <outlet property="notiVcontraint" destination="xNn-RG-07G" id="FX6-Jg-g6g"/>
+                        <outlet property="notiVcontraint" destination="iuq-PR-IgJ" id="O5E-9Z-FxQ"/>
                         <outlet property="sadB" destination="eTS-zc-MeT" id="9cL-iC-0BE"/>
                         <outlet property="surpriseB" destination="EsZ-Nc-oTr" id="xmF-Wn-yH0"/>
                     </connections>

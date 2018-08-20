@@ -55,7 +55,9 @@ class CamViewController: UIViewController {
     // MARK: override
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(toHelloViewController(_:)))
         
         helloV.addGestureRecognizer(tap)
@@ -71,7 +73,7 @@ class CamViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configFirstLook()
-        
+        setForDevice()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -177,7 +179,7 @@ extension CamViewController: AffdexCameraDelegate {
                     AffdexCamera.instance().errorTime += 1
                     AffdexCamera.instance().hadKairos = false
                     
-                    if AffdexCamera.instance().errorTime == 3 {
+                    if AffdexCamera.instance().errorTime >= 3 {
                         self.updateError(error: error as! String)
                     }
                     return
@@ -201,24 +203,24 @@ extension CamViewController: AffdexCameraDelegate {
                     if self.face.glasses {
                         if self.face.female {
                             if confidence < 0.8 {
-                                self.updateError(error: "Không có dữ liệu khuôn mặt")
+                                self.ultimateUpdateError(error: "Không có dữ liệu khuôn mặt")
                                 return
                             }
                         }
                         if confidence < 0.91 {
-                            self.updateError(error: "Không có dữ liệu khuôn mặt")
+                            self.ultimateUpdateError(error: "Không có dữ liệu khuôn mặt")
                             return
                         }
                     }
                     
                     if self.face.female {
                         if confidence < 0.8 {
-                            self.updateError(error: "Không có dữ liệu khuôn mặt")
+                            self.ultimateUpdateError(error: "Không có dữ liệu khuôn mặt")
                             return
                         }
                     } else {
                         if confidence < 0.85 {
-                            self.updateError(error: "Không có dữ liệu khuôn mặt")
+                            self.ultimateUpdateError(error: "Không có dữ liệu khuôn mặt")
                             return
                         }
                     }
@@ -227,7 +229,7 @@ extension CamViewController: AffdexCameraDelegate {
                     self.updateName(name: name)
                     self.firstEmotion(face: self.face)
                 } else {
-                    self.updateError(error: "Không có dữ liệu khuôn mặt")
+                    self.ultimateUpdateError(error: "Không có dữ liệu khuôn mặt")
                 }
              
             }
@@ -296,6 +298,17 @@ extension CamViewController {
 
 //MARK: UI config
 extension CamViewController {
+    func setForDevice() {
+        let model = UIDevice.modelName
+        let device = model.components(separatedBy: " ")
+        let iphone = device[0]
+        
+        if iphone == "iPhone" {
+            notiL.font = notiL.font.withSize(12)
+            self.helloL.font = self.helloL.font.withSize(20)
+        }
+    }
+    
     func updateProcessing() {
         UIView.animate(withDuration: 0.2, animations: {
             self.helloL.alpha = 0
@@ -315,7 +328,7 @@ extension CamViewController {
     func updateName(name: String) {
         self.helloLcentreYcontraint.constant = -self.helloV.frame.height/4
         self.nameLcentreYContraint.constant = -self.helloV.frame.height/3
-        self.notiVcontraint.constant = 60
+        self.notiVcontraint.constant = 0
         
         UIView.animate(withDuration: 0.5, animations: {
             //self.helloL.center.y = self.helloV.frame.height/2
@@ -351,7 +364,7 @@ extension CamViewController {
     
     func REconfigFirstLook() {
         self.helloLcentreYcontraint.constant = 0
-        self.notiVcontraint.constant = 0
+        self.notiVcontraint.constant = -self.notiV.frame.height
         
         faceI.image = nil
         
@@ -361,7 +374,7 @@ extension CamViewController {
 
             self.nameL.alpha = 0
             
-            self.notiV.center.y -= 60
+            self.notiV.center.y -= self.notiV.frame.height
             
             self.emoV.isHidden = true
             self.emoV.alpha = 0
@@ -402,6 +415,15 @@ extension CamViewController {
         
     }
     
+    func ultimateUpdateError(error: String) {
+        AffdexCamera.instance().errorTime += 1
+        AffdexCamera.instance().hadKairos = false
+        
+        if AffdexCamera.instance().errorTime >= 3 {
+            self.updateError(error: error)
+        }
+    }
+    
     func updateError(error: String){
         UIView.animate(withDuration: 0.2, animations: {
             self.helloL.alpha = 0
@@ -420,7 +442,7 @@ extension CamViewController {
         }
         
         if error == "Không có dữ liệu khuôn mặt", face.glasses == true {
-            self.notiVcontraint.constant = 60
+            self.notiVcontraint.constant = 0
             UIView.animate(withDuration: 0.5) {
                 self.notiL.text = "Có thể vì bạn đang đeo kính, hãy thử lại"
                 
