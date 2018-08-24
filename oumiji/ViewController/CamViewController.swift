@@ -188,18 +188,11 @@ extension CamViewController: AffdexCameraDelegate {
                 
                 let name = (result as! [String:AnyObject])["name"] as? String
                 let face_id = (result as! [String:AnyObject])["face_id"] as? String
+                let gender = (result as! [String:AnyObject])["gender"] as? String
                 let confidence = (result as! [String:AnyObject])["confidence"] as? Float
                 
-                if let confidence = confidence, let name = name, let face_id = face_id {
-                    for face in faces.allValues {
-                        let faceO = face as! AFDXFace
-                        self.face.firstUpdate(name: name, face_id: face_id, face: faceO)
-                        break
-                    }
-                    
-                    //Update Name here
-                    
-                    
+                
+                if let confidence = confidence, let name = name, let face_id = face_id, let gender = gender {
                     
                     if self.face.glasses {
                         if self.face.female {
@@ -226,9 +219,18 @@ extension CamViewController: AffdexCameraDelegate {
                         }
                     }
                     
+                    for face in faces.allValues {
+                        let faceO = face as! AFDXFace
+                        self.face.firstUpdate(name: name, face_id: face_id, gender: gender, face: faceO)
+                        break
+                    }
+                    
+                    //Update Name here
+                    
                     print("\(self.face.name): G:\(self.face.glasses), F:\(self.face.female)")
                     self.updateName(name: name)
                     self.firstEmotion(face: self.face)
+                    
                 } else {
                     self.ultimateUpdateError(error: "Không có dữ liệu khuôn mặt")
                 }
@@ -252,22 +254,19 @@ extension CamViewController: AffdexCameraDelegate {
     }
     
     @objc func restartDetect() {
+        sendFace()
         
         if !fastMode {
             toHelloViewController(helloV)
             return
         }
-        
+    
         print("reuse Dectect")
 
         AffdexCamera.instance().reuseDetector()
         
         REconfigFirstLook()
         
-        
-        if (face.face_id != ""){
-            sendFace()
-        }
         
         face = FaceObject()
         
@@ -495,7 +494,7 @@ extension CamViewController {
     func emotionImage(face: FaceObject) -> UIImage? {
         let emotion = face.nowEmotion()
      
-        if face.female == false {
+        if face.gender == "Nam" {
             switch emotion {
             case "happy":
                 return #imageLiteral(resourceName: "mhappy")
@@ -522,30 +521,33 @@ extension CamViewController {
             }
         }
         
-        switch emotion {
-        case "happy":
-            return #imageLiteral(resourceName: "fhappy")
-        case "sad":
-            return #imageLiteral(resourceName: "fsad")
-        case "angry":
-            return #imageLiteral(resourceName: "fangry")
-        case "fear":
-            return #imageLiteral(resourceName: "ffear")
-        case "surprise":
-            return #imageLiteral(resourceName: "fsurprise")
-        case "neutral":
-            return #imageLiteral(resourceName: "fneutral")
-        case "disgust":
-            
-            break
-        case "valence":
-            
-            break
-        case "contempt":
-            return #imageLiteral(resourceName: "fcontempt")
-        default:
-            break
+        if face.gender == "Nữ" {
+            switch emotion {
+            case "happy":
+                return #imageLiteral(resourceName: "fhappy")
+            case "sad":
+                return #imageLiteral(resourceName: "fsad")
+            case "angry":
+                return #imageLiteral(resourceName: "fangry")
+            case "fear":
+                return #imageLiteral(resourceName: "ffear")
+            case "surprise":
+                return #imageLiteral(resourceName: "fsurprise")
+            case "neutral":
+                return #imageLiteral(resourceName: "fneutral")
+            case "disgust":
+                
+                break
+            case "valence":
+                
+                break
+            case "contempt":
+                return #imageLiteral(resourceName: "fcontempt")
+            default:
+                break
+            }
         }
+        
         
         return nil
     }

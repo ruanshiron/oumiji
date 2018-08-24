@@ -12,6 +12,7 @@ import Affdex
 class FaceObject: NSObject {
     var name: String = ""
     var face_id: String = ""
+    var gender: String = ""
     
     var joy: Float = 0
     var anger: Float = 0
@@ -31,15 +32,16 @@ class FaceObject: NSObject {
     var nowdisgust: Float = 0
     var nowcontempt: Float = 0
     
+    var ad = (12, 12)
     var glasses = false
     var female = false
     
     var emotion: String = ""
     
-    func firstUpdate(name: String, face_id: String, face: AFDXFace) {
+    func firstUpdate(name: String, face_id: String, gender: String, face: AFDXFace) {
         self.name = name
         self.face_id = face_id
-        
+        self.gender = gender
         
         self.joy = Float(face.emotions.joy)
         self.anger = Float(face.emotions.anger)
@@ -80,7 +82,9 @@ class FaceObject: NSObject {
     }
     
     override init() {
-        
+//        super.init()
+//        let obj = xxx()
+//        obj.serve(customer: printx())
     }
     
     func realemotion() -> String? {
@@ -90,7 +94,7 @@ class FaceObject: NSObject {
         emo["fear"] = self.fear
         emo["sad"] = self.sadness
         emo["surprise"] = self.surprise
-        emo["neutral"] = 100 - self.joy - self.anger - self.fear - self.surprise - self.sadness
+        emo["neutral"] = 5 - self.joy - self.anger - self.fear - self.surprise - self.sadness
         //print(emo)
         let greatest = emo.max { a, b in a.value < b.value }
         let emoM = greatest?.key
@@ -104,12 +108,23 @@ class FaceObject: NSObject {
         emo["fear"] = self.nowfear/0.02
         emo["sad"] = self.nowsadness/0.02
         emo["surprise"] = self.nowsurprise/0.02
-        emo["neutral"] = 100 - self.nowjoy - self.nowanger - self.nowfear - self.nowsurprise - self.nowsadness
+        emo["neutral"] = (100 - self.nowjoy - self.nowanger - self.nowfear - self.nowsurprise - self.nowsadness)
         print(emo)
         //print(emo)
-        let greatest = emo.max { a, b in a.value < b.value }
+        //let greatest = emo.max { a, b in a.value < b.value }
+        
+        let greatest = emo.max { (key1, key2) -> Bool in
+            return key1.value < key2.value
+        }
+       
         let emoM = greatest?.key
         return emoM!
+        
+        
+    }
+    
+    func printx() -> Void {
+        print(self)
     }
     
     deinit {

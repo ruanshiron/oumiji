@@ -61,6 +61,7 @@ class API: NSObject {
                 if let nameAndId = nameAndId {
                     let name = nameAndId.components(separatedBy: ",")
                     passdata["name"] = name[0] as AnyObject
+                    passdata["gender"] = name[1] as AnyObject
                 }
                 
                 passdata["face_id"] = (transaction as? [String : AnyObject])?["face_id"] as? String as AnyObject

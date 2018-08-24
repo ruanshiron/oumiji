@@ -24,6 +24,7 @@ class InfoView: UIView, UIScrollViewDelegate {
     var tut3 = ["content": "Màn hình cài đặt", "image" : "3"]
     var tut4 = ["content": "Màn hình của chế độ Khách", "image" : "4"]
     var tut5 = ["content": "Màn hình của chế độ cho nhân viên", "image" : "5"]
+    var tut6 = ["content": "Lỗi", "image" : "6"]
     
     var tutArray = [Dictionary<String, String>]()
     
@@ -54,7 +55,7 @@ class InfoView: UIView, UIScrollViewDelegate {
     }
     
     func scrollViewSetting() {
-        tutArray = [tut1, tut2, tut3, tut4, tut5]
+        tutArray = [tut1, tut2, tut3, tut4, tut5, tut6]
         
         scrollView.isPagingEnabled = true
         scrollView.contentSize = CGSize(width: content.frame.size.width * CGFloat(tutArray.count), height: content.frame.size.height)
